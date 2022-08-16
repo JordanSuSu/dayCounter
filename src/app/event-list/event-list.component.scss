@@ -1,0 +1,9 @@
+.event-card{
+    display: grid;
+    grid-template-columns: 150px 1fr;
+}
+
+.day-reminder{
+    display: grid;
+    grid-template-rows: 1fr 2.5fr 1fr;
+}

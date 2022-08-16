@@ -1,0 +1,11 @@
+<div class="w-full flex flex-col items-center">
+    <div *ngFor="let itemList of this.eventList; let i = index" class="w-[90%] h-32 border-2 rounded-lg bg-white mt-3 event-card">
+        <div class="day-reminder h-full">
+            <p class="text-xl flex items-center justify-start">a</p>
+            <p class="text-6xl flex items-center justify-center">{{countDate(itemList.eventDate)}}</p>
+            <p class="text-xl flex items-center justify-end">c</p>
+        </div>
+        <div class=""></div>
+    </div>
+</div>
+

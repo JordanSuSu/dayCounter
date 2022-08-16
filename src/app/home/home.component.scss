@@ -1,0 +1,104 @@
+.top_bar{
+   -webkit-user-select: none;
+   user-select: none;
+   -webkit-app-region: drag;
+}
+
+.resizeBtn{
+    -webkit-app-region: none;
+    // pointer-events: none;
+}
+
+@mixin icon($height, $width, $left) {
+    transition-duration: 0.5s;
+    position: absolute;
+    top: 10px;
+    left: $left;
+    height: $height;
+    width: $width;
+    background-color: black;
+}
+
+@mixin icon-before($height, $width, $top) {
+    transition-duration: 0.5s;
+    position: absolute;
+    width: $width;
+    height: $height;
+    background-color: black;
+    content: "";
+    top: $top;
+}
+  
+@mixin icon-after($height, $width, $top) {
+    transition-duration: 0.5s;
+    position: absolute;
+    width: $width;
+    height: $height;
+    background-color: black;
+    content: "";
+    top: $top;
+  }
+
+#hambugerIcon{
+  position: absolute;
+  
+  .hambugerIcon_right {
+    @include icon(2px, 8px, 13px);
+
+    &::after{
+        @include icon-after(2px, 8px, 5px);
+    }
+    &::before{
+        @include icon-before(2px, 8px, -5px);
+        
+    }
+  }
+  
+  
+  .hambugerIcon_left {
+    @include icon(2px, 8px, 5px);
+
+    &::after{
+        @include icon-after(2px, 8px, 5px);
+    }
+    &::before{
+        @include icon-before(2px, 8px, -5px);
+    }
+  }
+  
+  &.open{
+    .hambugerIcon_left{
+      transition-duration: 0.5s;
+      background-color: transparent !important;
+
+      &::after{
+          transform: rotateZ(-45deg) scaleX(1.4) translate(1px, -1px);
+      }
+      &::before{
+          transform: rotateZ(45deg) scaleX(1.4);
+      }
+    }
+    .hambugerIcon_right{
+      transition: 0.5s;
+      background-color: transparent !important;
+
+      &::after{
+          transform: rotateZ(45deg) scaleX(1.4) translate(-0.5px, -1px);
+      }
+      &::before{
+          transform: rotateZ(-45deg) scaleX(1.4)  translate(0px, 0px);
+      }
+    }
+  }
+  
+}
+
+.wrapper {
+    display: grid;
+    grid-template-rows: 32px 128px 1fr;
+}
+
+.wrapper-addEvent {
+    display: grid;
+    grid-template-rows: 32px 1fr;
+}

@@ -1,0 +1,45 @@
+<div class="absolute top-0 left-0 bottom-0 right-0 bg-white rounded-xl overflow-hidden" [ngClass]="{'wrapper':this.gs.displayMode == 0, 'wrapper-addEvent': this.gs.displayMode != 0}">
+    
+    <!-- Close Button-->
+    <button class="absolute top-0 right-0 h-8 w-10 flex items-center justify-center content-center resizeBtn" (click)="closeWin()">
+        <img src="./../../assets/images/win_close.svg">
+    </button>
+    <!-- Maximize Button-->
+    <!--button class="absolute top-0 right-10 h-8 w-10 flex items-center justify-center content-center resizeBtn" (click)="maximizeWin()">
+        <img src="./../../assets/images/win_maximize.svg">
+    </button>-->
+    <!-- Minimize Button-->
+    <button class="absolute top-0 right-10 h-8 w-10 flex items-center justify-center content-center resizeBtn" (click)="minimizeWin()">
+        <img src="./../../assets/images/win_minimize.svg">
+    </button>
+
+
+    <!-- Top Bar -->
+    <div class="bg-gray-400 top_bar">
+        <!-- Title -->
+        <p class="absolute top-0 left-5 text-lg text-black">{{getTitleName()}}</p>
+    </div>
+
+    <!-- Home Page Title-->
+    <div *ngIf="this.gs.displayMode == 0" class="w-full bg-orange-300 flex flex-col relative">
+        <!-- Hambuger Icon -->
+        <div class="absolute top-3 left-2 h-5 w-7" id="hambugerIcon" [ngClass]="{'open':clickHam}">
+            <div class="hambugerIcon_left" id="hamIcon_left"></div>
+            <div class="hambugerIcon_right" id="hamIcon_right"></div>
+        </div>
+
+        <!-- Add button -->
+        <div class="absolute top-1 right-2 text-2xl" (click)="addEvent()">+</div>
+    </div>
+    
+    
+    <event-list *ngIf="this.gs.displayMode == 0"></event-list>
+    <add-event *ngIf="this.gs.displayMode == 1"></add-event>
+
+</div>
+
+
+
+<!--div class="w-full h-full overflow-auto bg-rbg">
+        
+</div>-->
